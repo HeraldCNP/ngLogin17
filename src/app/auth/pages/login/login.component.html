@@ -36,7 +36,10 @@
             </mat-card-content>
         </mat-card>
         <div class="d-flex justify-content-center mt-5">
-            <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">Iniciar Sesion</button>
+            <button mat-raised-button color="primary" appLoader [disabled]="loginForm.invalid" (click)="login()">
+                <!-- <mat-icon fontIcon="home"></mat-icon> -->
+                Iniciar Sesion
+            </button>
         </div>
 
 
