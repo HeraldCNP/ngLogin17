@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h1 class="text-center">Iniciar Sesion</h1>
+        <mat-card class="shadow text-center">
+            <mat-card-header>
+
+            </mat-card-header>
+            <mat-card-content>
+                <form class="create-form" [formGroup]="loginForm">
+                    <mat-form-field class="full-width">
+                        <mat-label>Correo Electronico</mat-label>
+                        <input matInput placeholder="pat@example.com" formControlName="email" type="email">
+                        <mat-icon matSuffix>mail</mat-icon>
+                        @if (form['email'].hasError('required') && form['email'].touched){
+                            <mat-error> El Correo Electronico es obligatorio. </mat-error>
+                        }
+                        @if(form['email'].hasError('email') && form['email'].touched){
+                            <mat-error> El Correo Electronico de ser valido. </mat-error>
+                        }
+                    </mat-form-field>
+
+
+                    <mat-form-field class="full-width">
+                        <mat-label>Password</mat-label>
+
+                        <input type="password" matInput formControlName="password" placeholder="********">
+                        <mat-icon matSuffix>mail</mat-icon>
+                        @if (form['password'].hasError('required') && form['password'].touched){
+                            <mat-error> El Password es obligatorio. </mat-error>
+                        }
+                        @if (form['password'].hasError('minlength')){
+                            <mat-error> El Password debe tener minimo 8 caracteres. </mat-error>
+                        }
+                    </mat-form-field>
+                </form>
+            </mat-card-content>
+        </mat-card>
+        <div class="d-flex justify-content-center mt-5">
+            <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="login()">Iniciar Sesion</button>
+        </div>
+
+
+
+
+
+    </div>
+</div>

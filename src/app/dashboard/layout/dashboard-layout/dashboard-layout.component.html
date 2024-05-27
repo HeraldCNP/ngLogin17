@@ -1,0 +1,39 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }">
+      <mat-toolbar color="primary">
+        <span>Menu</span>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar>
+  
+      <mat-nav-list>
+        <mat-list-item *ngFor="let item of sidebarItems" [routerLink]="item.url" (click)="sidenav.toggle()">
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          {{ item.label }}
+        </mat-list-item>
+      </mat-nav-list>
+  
+    </mat-sidenav>
+  
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <button mat-button [matMenuTriggerFor]="menu" matTooltip="Mas opciones">
+        <span></span>
+        <mat-icon>more_vert </mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <!-- <button mat-menu-item>Item 2</button> -->
+        <button mat-menu-item  matTooltip="Info about the action" (click)="logout()">Cerrar Sesion</button>
+      </mat-menu>
+    </mat-toolbar>
+  
+    <div class="container-fluid mb-2">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-container>
+  
